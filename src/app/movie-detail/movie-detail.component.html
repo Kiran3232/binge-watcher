@@ -19,7 +19,7 @@
                         <mat-card-title>More Info About {{ movie.title }}</mat-card-title>
                     </mat-card-header>
                     <mat-card-content class="text-center">
-                        <label class="d-block">Check out the <a href="{{ movie.homepage }}"
+                        <label *ngIf="movie.homepage" class="d-block">Check out the <a href="{{ movie.homepage }}"
                                 target="_blank">Homepage</a></label>
                         <label class="d-block">Check it out at <a href="https://www.imdb.com/title/{{ movie.imdb_id }}"
                                 target="_blank">IMDB</a></label>
@@ -49,13 +49,13 @@
                             <div class="col-6 pt-2 align-top" *ngFor="let cast of credits.cast"
                                 [class.d-inline-block]="cast.profile_path" [class.d-none]="!cast.profile_path">
                                 <img src="https://image.tmdb.org/t/p/original{{ cast.profile_path }}"
-                                    alt="Image Not Available" class="img-fluid">
+                                    alt="Image Not Available" class="img-fluid pb-2">
                                 <label class="d-block text-wrap">{{ cast.name }}</label>
                                 <label class="d-block text-wrap">{{ cast.character }}</label>
                             </div>
                         </div>
                         <div class="text-center pt-3">
-                            <button mat-raised-button color="primary">View More</button>
+                            <button mat-raised-button color="primary" (click)="showCast()">View More</button>
                         </div>
                     </mat-card-content>
                 </mat-card>

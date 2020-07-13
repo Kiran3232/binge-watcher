@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { PopularComponent } from './home/popular/popular.component';
 import { TopRatedComponent } from './home/top-rated/top-rated.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { CastAndCrewComponent } from './movie-detail/cast-and-crew/cast-and-crew.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
     HomeComponent,
     PopularComponent,
     TopRatedComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    CastAndCrewComponent
   ],
   imports: [
     BrowserModule,
