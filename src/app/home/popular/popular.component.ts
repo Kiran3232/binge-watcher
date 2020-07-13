@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ApiService } from 'src/app/shared/api.service';
 import { MovieService } from '../../shared/movie.service';
+import { StorageService } from 'src/app/shared/storage.service';
 
 @Component({
   selector: 'app-popular',
@@ -10,25 +10,46 @@ import { MovieService } from '../../shared/movie.service';
 })
 export class PopularComponent implements OnInit {
 
+  currentPage: number;
   isLoaded = false;
   isError = false;
-  movies: any;
+  movies: any = [];
 
   constructor(
     private apiService: ApiService,
-    public movieService: MovieService
+    public movieService: MovieService,
+    private storageService: StorageService
   ) { }
 
   ngOnInit(): void {
-    this.apiService.getPopularMovies().subscribe((data: any) => {
+    this.movies = this.storageService.popularMovies;
+    if (this.movies.length === 0) {
+      this.apiService.getPopularMovies().subscribe((data: any) => {
+        this.isLoaded = true;
+        this.movies = data.results;
+        this.currentPage = data.page
+        this.storageService.popularMovies = this.movies;
+      },
+        (error) => {
+          this.isLoaded = true;
+          this.isError = true;
+          console.log(error);
+        })
+    }
+    else {
       this.isLoaded = true;
-      this.movies = data.results;
-    },
-    (error) => {
-      this.isLoaded = true;
-      this.isError = true;
-      console.log(error);
-    })
+    }
+  }
+
+  getMoreMovies() {
+    this.apiService.loadMoreMovies(this.currentPage + 1, 'popular').subscribe((data: any) => {
+      console.log(data);
+      this.currentPage = data.page;
+      data.results.forEach((movie) => {
+        this.movies.push(movie);
+      })
+      this.storageService.popularMovies = this.movies;
+    });
   }
 
 }

@@ -19,13 +19,18 @@
                         <mat-card-title>More Info About {{ movie.title }}</mat-card-title>
                     </mat-card-header>
                     <mat-card-content class="text-center">
-                        <label class="d-block">Check out the <a href="{{ movie.homepage }}" target="_blank">Homepage</a></label>
-                        <label class="d-block">Check it out at <a href="https://www.imdb.com/title/{{ movie.imdb_id }}" target="_blank">IMDB</a></label>
-                        <label class="d-block">Check it out at <a href="https://www.themoviedb.org/movie/{{ movie.id }}" target="_blank">TMDB</a></label>
+                        <label class="d-block">Check out the <a href="{{ movie.homepage }}"
+                                target="_blank">Homepage</a></label>
+                        <label class="d-block">Check it out at <a href="https://www.imdb.com/title/{{ movie.imdb_id }}"
+                                target="_blank">IMDB</a></label>
+                        <label class="d-block">Check it out at <a href="https://www.themoviedb.org/movie/{{ movie.id }}"
+                                target="_blank">TMDB</a></label>
                         <label class="d-block">Production Companies :</label>
-                        <div class="row pt-2" *ngFor="let company of movie.production_companies">
+                        <div class="row py-3" *ngFor="let company of movie.production_companies; let isLast = last"
+                            [class.border-bottom]="!isLast">
                             <div class="col-5">
-                                <img src="https://image.tmdb.org/t/p/original{{ company.logo_path }}" alt="" class="img-fluid">
+                                <img src="https://image.tmdb.org/t/p/original{{ company.logo_path }}" alt="Image Not Available"
+                                    class="img-fluid">
                             </div>
                             <div class="col-7 my-auto">
                                 <label>{{ company.name }}</label>
@@ -41,11 +46,16 @@
                     </mat-card-header>
                     <mat-card-content>
                         <div class="row height-fix d-block">
-                            <div class="col-6 pt-2 d-inline-block align-top" *ngFor="let cast of credits.cast">
-                                <img src="https://image.tmdb.org/t/p/original{{ cast.profile_path }}" alt="Image not available" class="img-fluid">
+                            <div class="col-6 pt-2 align-top" *ngFor="let cast of credits.cast"
+                                [class.d-inline-block]="cast.profile_path" [class.d-none]="!cast.profile_path">
+                                <img src="https://image.tmdb.org/t/p/original{{ cast.profile_path }}"
+                                    alt="Image Not Available" class="img-fluid">
                                 <label class="d-block text-wrap">{{ cast.name }}</label>
                                 <label class="d-block text-wrap">{{ cast.character }}</label>
                             </div>
+                        </div>
+                        <div class="text-center pt-3">
+                            <button mat-raised-button color="primary">View More</button>
                         </div>
                     </mat-card-content>
                 </mat-card>

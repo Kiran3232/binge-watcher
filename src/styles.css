@@ -24,3 +24,7 @@ body {
 .mat-card-header-text {
     margin: auto !important;
 }
+
+.pointer {
+  cursor: pointer;
+}

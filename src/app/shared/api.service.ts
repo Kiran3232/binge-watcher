@@ -22,7 +22,11 @@ export class ApiService {
     return this.http.get("https://api.themoviedb.org/3/movie/" + id);
   }
 
-  getCredits(id: number){
-    return this.http.get("https://api.themoviedb.org/3/movie/" + id +"/credits");
+  getCredits(id: number) {
+    return this.http.get("https://api.themoviedb.org/3/movie/" + id + "/credits");
+  }
+
+  loadMoreMovies(page: number, type: string) {
+    return this.http.get("https://api.themoviedb.org/3/movie/" + type + "?page=" + page);
   }
 }

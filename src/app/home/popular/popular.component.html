@@ -8,10 +8,15 @@
     <div class="error" *ngIf="isError">
         <h2 class="text-center">Try Again Later!</h2>
     </div>
-    <div class="row height-fix d-block" *ngIf="isLoaded && !isError">
-        <div class="col-6 col-md-4 col-lg-3 col-xl-2 py-3 d-inline-block" *ngFor="let movie of movies">
-            <img src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}" alt=""
-                class="img-fluid mat-elevation-z8" (click)="movieService.showMovieDetail(movie)">
+    <div *ngIf="isLoaded && !isError">
+        <div class="row height-fix d-block">
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 py-3 d-inline-block" *ngFor="let movie of movies">
+                <img src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}" alt=""
+                    class="img-fluid mat-elevation-z8 pointer" (click)="movieService.showMovieDetail(movie)">
+            </div>
+        </div>
+        <div class="load-more px-3 pt-2 text-right">
+            <button mat-raised-button color="primary" (click)="getMoreMovies()">Load More</button>
         </div>
     </div>
 </div>
