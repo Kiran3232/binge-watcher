@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from 'src/app/shared/api.service';
+import { MovieService } from '../../shared/movie.service';
 
 @Component({
   selector: 'app-popular',
@@ -9,16 +10,24 @@ import { ApiService } from 'src/app/shared/api.service';
 })
 export class PopularComponent implements OnInit {
 
+  isLoaded = false;
+  isError = false;
   movies: any;
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    public movieService: MovieService
   ) { }
 
   ngOnInit(): void {
     this.apiService.getPopularMovies().subscribe((data: any) => {
+      this.isLoaded = true;
       this.movies = data.results;
-      console.log(this.movies)
+    },
+    (error) => {
+      this.isLoaded = true;
+      this.isError = true;
+      console.log(error);
     })
   }
 

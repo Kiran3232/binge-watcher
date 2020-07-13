@@ -21,4 +21,8 @@ export class ApiService {
   getMovie(id: number) {
     return this.http.get("https://api.themoviedb.org/3/movie/" + id);
   }
+
+  getCredits(id: number){
+    return this.http.get("https://api.themoviedb.org/3/movie/" + id +"/credits");
+  }
 }

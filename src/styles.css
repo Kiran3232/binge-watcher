@@ -1,20 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
-
-html, body {
-    height: 100%;
+* {
+  font-family: "Open Sans", sans-serif !important;
+}
+html,
+body {
+  height: 100%;
 }
 
 body {
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
+  margin: 0;
 }
 
 .row {
-    margin-left: 0px;
-    margin-right: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .height-fix {
-    overflow-x: auto;
-    white-space: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.mat-card-header-text {
+    margin: auto !important;
 }
