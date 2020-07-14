@@ -12,6 +12,8 @@ import { PopularComponent } from './home/popular/popular.component';
 import { TopRatedComponent } from './home/top-rated/top-rated.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { CastAndCrewComponent } from './movie-detail/cast-and-crew/cast-and-crew.component';
+import { HeaderComponent } from './navigation/header/header.component';
+import { SidenavComponent } from './navigation/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { CastAndCrewComponent } from './movie-detail/cast-and-crew/cast-and-crew
     PopularComponent,
     TopRatedComponent,
     MovieDetailComponent,
-    CastAndCrewComponent
+    CastAndCrewComponent,
+    HeaderComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,

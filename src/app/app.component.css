@@ -1,4 +1,17 @@
 .full-bleed {
-    max-width: 1440px;
-    margin: auto;
+  max-width: 1440px;
+  margin: auto;
+}
+mat-sidenav-container,
+mat-sidenav,
+mat-sidenav-content {
+  height: 100%;
+}
+
+mat-toolbar {
+  height: 10% !important;
+}
+
+mat-sidenav {
+  width: 250px;
 }

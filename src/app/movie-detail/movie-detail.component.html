@@ -45,9 +45,8 @@
                         <mat-card-title>Cast and Crew</mat-card-title>
                     </mat-card-header>
                     <mat-card-content>
-                        <div class="row height-fix d-block">
-                            <div class="col-6 pt-2 align-top" *ngFor="let cast of credits.cast"
-                                [class.d-inline-block]="cast.profile_path" [class.d-none]="!cast.profile_path">
+                        <div class="row flex-row flex-nowrap overflow-auto">
+                            <div class="col-6 pt-2 align-top" *ngFor="let cast of credits.cast" [class.d-none]="!cast.profile_path">
                                 <img src="https://image.tmdb.org/t/p/original{{ cast.profile_path }}"
                                     alt="Image Not Available" class="img-fluid pb-2">
                                 <label class="d-block text-wrap">{{ cast.name }}</label>

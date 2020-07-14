@@ -1,0 +1,16 @@
+.nav-list {
+    list-style-type: none;
+    width: fit-content;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: lightgray;
+}
+
+.active-nav {
+    color: lightgray;
+}

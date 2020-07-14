@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+    <div class="navbar-expand-lg">
+        <button class="navbar-toggler" mat-icon-button (click)="toggleSideNav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div class="pl-3">
+        <a routerLink="/" class="text-white text-decoration-none">Binge Watcher</a>
+    </div>
+    <div class="w-100">
+        <ul class="d-none d-lg-flex ml-auto my-auto nav-list">
+            <!-- <li class="nav-item">
+                <a class="nav-link" routerLink="/login" routerLinkActive="active-nav">Login</a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/training" routerLinkActive="active-nav">Movies</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/training" routerLinkActive="active-nav">TV Shows</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/signup" routerLinkActive="active-nav">Account</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link">Logout</a>
+            </li> -->
+        </ul>
+    </div>
+</mat-toolbar>

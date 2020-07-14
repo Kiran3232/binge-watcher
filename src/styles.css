@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 * {
-  font-family: "Open Sans", sans-serif !important;
+  font-family: "Open Sans", sans-serif;
 }
 
 html, body {
@@ -17,11 +17,6 @@ body {
   margin-right: 0px;
 }
 
-.height-fix {
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
 .mat-card-header-text {
   margin: auto !important;
 }
@@ -30,7 +25,23 @@ body {
   cursor: pointer;
 }
 
-@media only screen and (min-width:767px) {
+.card, .card-img {
+  border-radius: 0px !important;
+}
+
+@media only screen and (max-width: 991px) {
+  .card-columns{
+    column-count: 2;
+  }
+}
+
+@media only screen and (min-width: 1200px){
+  .card-columns{
+    column-count: 4;
+  }
+}
+
+@media only screen and (min-width:768px) {
   /* width */
   ::-webkit-scrollbar {
     width: 10px;

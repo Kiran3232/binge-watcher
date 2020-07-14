@@ -10,12 +10,12 @@
     <div class="row text-center" *ngIf="isLoaded && !isError">
         <div class="col-12 px-0">
             <h2>Cast</h2>
-            <div class="row">
-                <div *ngFor="let cast of credits.cast" class="pt-3 col-md-6 col-lg-4 col-xl-3 col-6">
+            <div class="card-columns px-3">
+                <div *ngFor="let cast of credits.cast" class="">
                     <div class="card mb-3 mat-elevation-z8">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="https://image.tmdb.org/t/p/original{{ cast.profile_path }}" class="card-img h-100"
+                                <img src="https://image.tmdb.org/t/p/original{{ cast.profile_path }}" class="card-img"
                                     alt="Image Not Available">
                             </div>
                             <div class="col-md-8">
@@ -31,12 +31,12 @@
         </div>
         <div class="col-12 pt-4 border-top">
             <h2>Crew</h2>
-            <div class="row">
-                <div *ngFor="let crew of credits.crew" class="pt-3 col-md-6 col-lg-4 col-xl-3 col-6">
+            <div class="card-columns px-3">
+                <div *ngFor="let crew of credits.crew" class="">
                     <div class="card mb-3 mat-elevation-z8">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="https://image.tmdb.org/t/p/original{{ crew.profile_path }}" class="card-img h-100"
+                                <img src="https://image.tmdb.org/t/p/original{{ crew.profile_path }}" class="card-img"
                                     alt="Image Not Available">
                             </div>
                             <div class="col-md-8">
