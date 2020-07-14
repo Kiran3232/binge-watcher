@@ -8,23 +8,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenInterceptor } from './token.interceptor';
 import { MaterialModule } from './material.module';
 import { HomeComponent } from './home/home.component';
-import { PopularComponent } from './home/popular/popular.component';
-import { TopRatedComponent } from './home/top-rated/top-rated.component';
-import { MovieDetailComponent } from './movie-detail/movie-detail.component';
-import { CastAndCrewComponent } from './movie-detail/cast-and-crew/cast-and-crew.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavComponent } from './navigation/sidenav/sidenav.component';
+import { MoviesListComponent } from './movies/movies-list/movies-list.component';
+import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
+import { CastAndCrewComponent } from './movies/movie-detail/cast-and-crew/cast-and-crew.component';
+import { TvShowsListComponent } from './tv-shows/tv-shows-list/tv-shows-list.component';
+import { TvShowDetailComponent } from './tv-shows/tv-show-detail/tv-show-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PopularComponent,
-    TopRatedComponent,
     MovieDetailComponent,
     CastAndCrewComponent,
     HeaderComponent,
-    SidenavComponent
+    SidenavComponent,
+    MoviesListComponent,
+    TvShowsListComponent,
+    TvShowDetailComponent
   ],
   imports: [
     BrowserModule,

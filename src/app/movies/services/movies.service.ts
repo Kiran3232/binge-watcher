@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class MovieService {
+export class MoviesService {
 
   constructor(
     private router: Router
@@ -13,5 +13,4 @@ export class MovieService {
   showMovieDetail(movie: any) {
     this.router.navigate(['movie', movie.id]);
   }
-
 }

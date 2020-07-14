@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../shared/api.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MoviesApiService } from '../services/movies-api.service';
 
 @Component({
-  selector: 'app-cast-and-crew',
-  templateUrl: './cast-and-crew.component.html',
-  styleUrls: ['./cast-and-crew.component.css']
+  selector: 'app-movie-detail',
+  templateUrl: './movie-detail.component.html',
+  styleUrls: ['./movie-detail.component.css']
 })
-export class CastAndCrewComponent implements OnInit {
+export class MovieDetailComponent implements OnInit {
 
   isLoaded = false;
   isError = false;
@@ -16,7 +16,8 @@ export class CastAndCrewComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private apiService: ApiService
+    private apiService: MoviesApiService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -38,4 +39,7 @@ export class CastAndCrewComponent implements OnInit {
     });
   }
 
+  showCast() {
+    this.router.navigate(['movie', this.movie.id, "credits"]);
+  }
 }

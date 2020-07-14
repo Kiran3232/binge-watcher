@@ -1,5 +1,6 @@
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from "@angular/common/http"
 import { Observable } from "rxjs"
+import { environment } from 'src/environments/environment'
 
 export class TokenInterceptor implements HttpInterceptor {
     intercept(
@@ -9,7 +10,7 @@ export class TokenInterceptor implements HttpInterceptor {
         const cloneReq = req.clone({
             params: req.params.append(
                 "api_key",
-                "f3af3f451e1f2b29d36e87619b0650ce"
+                environment.api_key
             ),
         })
         return next.handle(cloneReq)

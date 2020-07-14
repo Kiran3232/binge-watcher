@@ -4,18 +4,14 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class MoviesApiService {
 
   constructor(
     private http: HttpClient
   ) { }
 
-  getPopularMovies() {
-    return this.http.get("https://api.themoviedb.org/3/movie/popular");
-  }
-
-  getTopRatedMovies() {
-    return this.http.get("https://api.themoviedb.org/3/movie/top_rated");
+  getMovies(type: string) {
+    return this.http.get("https://api.themoviedb.org/3/movie/" + type);
   }
 
   getMovie(id: number) {
