@@ -1,1 +1,25 @@
-<p>tv-shows-list works!</p>
+<div class="top-rated-movies py-3 fade-in">
+    <h2 class="col-12">{{tvTypeTitle}} TV Shows</h2>
+    <div class="loading text-center" *ngIf="!isLoaded && !isError">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div class="error" *ngIf="isError">
+        <h2 class="text-center">Try Again Later!</h2>
+    </div>
+    <div *ngIf="isLoaded && !isError">
+        <div class="position-relative">
+            <div class="overlay"></div>
+            <div class="row flex-row flex-nowrap overflow-auto">
+                <div class="col-6 col-md-4 col-lg-3 col-xl-2 py-3" *ngFor="let show of shows">
+                    <img src="https://image.tmdb.org/t/p/original{{ show.poster_path }}" alt="{{ show.name }} Poster Not Available"
+                        class="img-fluid mat-elevation-z8 pointer" (click)="ngOnInit()">
+                </div>
+            </div>
+        </div>
+        <div class="load-more px-3 pt-2 text-right">
+            <button mat-raised-button color="primary" (click)="getMoreShows()">Load More</button>
+        </div>
+    </div>
+</div>

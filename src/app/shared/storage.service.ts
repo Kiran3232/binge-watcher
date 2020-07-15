@@ -7,6 +7,8 @@ export class StorageService {
 
   popularMovies: any = [];
   topRatedMovies: any = [];
+  popularTvShows: any = [];
+  topRatedTvShows: any = [];
 
   constructor() { }
 }

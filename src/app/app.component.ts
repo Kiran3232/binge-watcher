@@ -6,12 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(
-  ) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    
-  }
-
-  title = 'binge-watcher';
+  ngOnInit(): void { }
 }

@@ -6,7 +6,8 @@ import { CastAndCrewComponent } from './movies/movie-detail/cast-and-crew/cast-a
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'movie/:id', component: MovieDetailComponent },
   { path: 'movie/:id/credits', component: CastAndCrewComponent }
 ];

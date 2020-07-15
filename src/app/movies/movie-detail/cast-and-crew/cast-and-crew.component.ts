@@ -24,11 +24,9 @@ export class CastAndCrewComponent implements OnInit {
       this.apiService.getMovie(value.id).subscribe((movie) => {
         this.isLoaded = true;
         this.movie = movie;
-        console.log(movie);
         this.apiService.getCredits(value.id).subscribe((credits) => {
           this.credits = credits;
-          console.log(credits)
-        })
+        });
       },
         (error) => {
           this.isLoaded = true;

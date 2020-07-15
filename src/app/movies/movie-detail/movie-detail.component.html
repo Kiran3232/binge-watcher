@@ -8,7 +8,7 @@
         <h2 class="text-center">Try Again Later!</h2>
     </div>
     <div class="row" *ngIf="isLoaded && !isError">
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-4">
             <div>
                 <img src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}" alt=""
                     class="img-fluid mat-elevation-z8">
@@ -29,10 +29,10 @@
                         <div class="row py-3" *ngFor="let company of movie.production_companies; let isLast = last"
                             [class.border-bottom]="!isLast">
                             <div class="col-5">
-                                <img src="https://image.tmdb.org/t/p/original{{ company.logo_path }}" alt="Image Not Available"
-                                    class="img-fluid">
+                                <img src="https://image.tmdb.org/t/p/original{{ company.logo_path }}"
+                                    alt="Image Not Available" class="img-fluid">
                             </div>
-                            <div class="col-7 my-auto">
+                            <div class="col-7 my-auto px-0">
                                 <label>{{ company.name }}</label>
                             </div>
                         </div>
@@ -45,12 +45,16 @@
                         <mat-card-title>Cast and Crew</mat-card-title>
                     </mat-card-header>
                     <mat-card-content>
-                        <div class="row flex-row flex-nowrap overflow-auto">
-                            <div class="col-6 pt-2 align-top" *ngFor="let cast of credits.cast" [class.d-none]="!cast.profile_path">
-                                <img src="https://image.tmdb.org/t/p/original{{ cast.profile_path }}"
-                                    alt="Image Not Available" class="img-fluid pb-2">
-                                <label class="d-block text-wrap">{{ cast.name }}</label>
-                                <label class="d-block text-wrap">{{ cast.character }}</label>
+                        <div class="position-relative">
+                            <div class="overlay width-100"></div>
+                            <div class="row flex-row flex-nowrap overflow-auto">
+                                <div class="col-6 pt-2 align-top" *ngFor="let cast of credits.cast"
+                                    [class.d-none]="!cast.profile_path">
+                                    <img src="https://image.tmdb.org/t/p/original{{ cast.profile_path }}"
+                                        alt="Image Not Available" class="img-fluid pb-2">
+                                    <label class="d-block text-wrap">{{ cast.name }}</label>
+                                    <label class="d-block text-wrap">{{ cast.character }}</label>
+                                </div>
                             </div>
                         </div>
                         <div class="text-center pt-3">
@@ -60,7 +64,7 @@
                 </mat-card>
             </div>
         </div>
-        <div class="col-md-9 pt-3 pt-md-0">
+        <div class="col-md-8 col-lg-9 pt-3 pt-md-0">
             <mat-card class="example-card mat-elevation-z8">
                 <mat-card-header class="mx-auto text-center">
                     <mat-card-title>{{ movie.title }}</mat-card-title>
