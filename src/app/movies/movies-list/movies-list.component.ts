@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { StorageService } from 'src/app/shared/storage.service';
-import { MoviesService } from '../services/movies.service';
 import { MoviesApiService } from '../services/movies-api.service';
 import { Movie } from '../movie.model';
 import { Movies } from '../movies.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movies-list',
@@ -25,8 +25,8 @@ export class MoviesListComponent implements OnInit {
 
   constructor(
     private apiService: MoviesApiService,
-    public movieService: MoviesService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -40,7 +40,7 @@ export class MoviesListComponent implements OnInit {
       this.apiService.getMovies(this.movieType).subscribe((data: Movies) => {
         this.isLoaded = true;
         this.movies = data.results;
-        this.currentPage = data.page
+        this.currentPage = data.page;
         if (this.movieType === 'top_rated') {
           this.storageService.topRatedMovies = this.movies;
         }
@@ -52,7 +52,7 @@ export class MoviesListComponent implements OnInit {
           this.isLoaded = true;
           this.isError = true;
           console.log(error);
-        })
+        });
     }
     else {
       this.isLoaded = true;
@@ -65,7 +65,7 @@ export class MoviesListComponent implements OnInit {
       this.currentPage = data.page;
       data.results.forEach((movie) => {
         this.movies.push(movie);
-      })
+      });
       if (this.movieType === 'top_rated') {
         this.storageService.topRatedMovies = this.movies;
       }
@@ -73,6 +73,10 @@ export class MoviesListComponent implements OnInit {
         this.storageService.popularMovies = this.movies;
       }
     });
+  }
+
+  showMovieDetail(id: number) {
+    this.router.navigate(['movie', id]);
   }
 
 }

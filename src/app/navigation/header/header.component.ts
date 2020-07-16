@@ -7,12 +7,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Output() sideNavToggle = new EventEmitter<void>();
-  
+  @Output()
+  sideNavToggle = new EventEmitter<void>();
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   toggleSideNav() {
     this.sideNavToggle.emit();

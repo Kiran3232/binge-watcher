@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { MoviesApiService } from '../../services/movies-api.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-cast-and-crew',
@@ -16,17 +16,15 @@ export class CastAndCrewComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private apiService: MoviesApiService
+    private apiService: ApiService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((value) => {
-      this.apiService.getMovie(value.id).subscribe((movie) => {
+      this.apiService.getCredits(value.type, value.id).subscribe((credits) => {
+        this.credits = credits;
         this.isLoaded = true;
-        this.movie = movie;
-        this.apiService.getCredits(value.id).subscribe((credits) => {
-          this.credits = credits;
-        });
       },
         (error) => {
           this.isLoaded = true;

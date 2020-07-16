@@ -3,6 +3,7 @@ import { StorageService } from 'src/app/shared/storage.service';
 import { TvShowsApiService } from '../services/tv-shows-api.service';
 import { TvShow } from '../tvshow.model';
 import { TvShows } from '../tvshows.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tv-shows-list',
@@ -24,7 +25,8 @@ export class TvShowsListComponent implements OnInit {
 
   constructor(
     private storageService: StorageService,
-    private apiService: TvShowsApiService
+    private apiService: TvShowsApiService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -45,13 +47,13 @@ export class TvShowsListComponent implements OnInit {
         else {
           this.storageService.popularTvShows = this.shows;
         }
-        console.log(this.shows)
+        console.log(this.shows);
       },
         (error) => {
           this.isLoaded = true;
           this.isError = true;
           console.log(error);
-        })
+        });
     }
     else {
       this.isLoaded = true;
@@ -64,7 +66,7 @@ export class TvShowsListComponent implements OnInit {
       this.currentPage = data.page;
       data.results.forEach((show) => {
         this.shows.push(show);
-      })
+      });
       if (this.tvType === 'top_rated') {
         this.storageService.topRatedTvShows = this.shows;
       }
@@ -72,6 +74,10 @@ export class TvShowsListComponent implements OnInit {
         this.storageService.popularTvShows = this.shows;
       }
     });
+  }
+
+  showTvDetail(id: number) {
+    this.router.navigate(['tv', id]);
   }
 
 }

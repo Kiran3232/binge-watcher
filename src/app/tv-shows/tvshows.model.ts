@@ -1,8 +1,8 @@
 import { TvShow } from './tvshow.model';
 
-export class TvShows {
+export interface TvShows {
     page: number;
+    results: TvShow[];
     total_pages: number;
     total_results: number;
-    results: TvShow[];
 }

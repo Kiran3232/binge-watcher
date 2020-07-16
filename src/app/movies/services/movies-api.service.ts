@@ -1,28 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesApiService {
 
+  typeSuffix = 'movie/';
+
   constructor(
     private http: HttpClient
   ) { }
 
   getMovies(type: string) {
-    return this.http.get("https://api.themoviedb.org/3/movie/" + type);
+    return this.http.get(environment.baseApiUrl + this.typeSuffix + type);
   }
 
   getMovie(id: number) {
-    return this.http.get("https://api.themoviedb.org/3/movie/" + id);
-  }
-
-  getCredits(id: number) {
-    return this.http.get("https://api.themoviedb.org/3/movie/" + id + "/credits");
+    return this.http.get(environment.baseApiUrl + this.typeSuffix + id);
   }
 
   loadMoreMovies(page: number, type: string) {
-    return this.http.get("https://api.themoviedb.org/3/movie/" + type + "?page=" + page);
+    return this.http.get(environment.baseApiUrl + this.typeSuffix + type + '?page=' + page);
   }
 }
