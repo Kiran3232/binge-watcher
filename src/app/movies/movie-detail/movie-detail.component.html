@@ -59,25 +59,51 @@
             </div>
         </div>
         <div class="col-md-8 col-lg-9 pt-3 pt-md-0">
-            <mat-card class="example-card mat-elevation-z8">
-                <mat-card-header class="mx-auto text-center">
-                    <mat-card-title>{{ movie.title }}</mat-card-title>
-                    <mat-card-subtitle>Original Title: {{ movie.original_title }} |
-                        {{ movie.original_language | uppercase }}</mat-card-subtitle>
-                    <mat-card-subtitle>Genre: <span *ngFor="let genre of movie.genres; let isLast = last">
-                            {{ genre.name }}{{isLast ? '' : ', '}} </span> </mat-card-subtitle>
-                    <mat-card-subtitle>Release Date: {{ movie.release_date }} </mat-card-subtitle>
-                    <mat-card-subtitle>Rating: {{ movie.vote_average }} </mat-card-subtitle>
-                </mat-card-header>
-                <img mat-card-image src="https://image.tmdb.org/t/p/original{{ movie.backdrop_path }}" alt="">
-                <mat-card-content>
-                    <p>{{ movie.overview }}</p>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button mat-button>LIKE</button>
-                    <button mat-button>SHARE</button>
-                </mat-card-actions>
-            </mat-card>
+            <div>
+                <mat-card class="example-card mat-elevation-z8">
+                    <mat-card-header class="mx-auto text-center">
+                        <mat-card-title>{{ movie.title }}</mat-card-title>
+                        <mat-card-subtitle>Original Title: {{ movie.original_title }} |
+                            {{ movie.original_language | uppercase }}</mat-card-subtitle>
+                        <mat-card-subtitle>Genre: <span *ngFor="let genre of movie.genres; let isLast = last">
+                                {{ genre.name }}{{isLast ? '' : ', '}} </span> </mat-card-subtitle>
+                        <mat-card-subtitle>Release Date: {{ movie.release_date }} </mat-card-subtitle>
+                        <mat-card-subtitle>Rating: {{ movie.vote_average }} </mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image src="https://image.tmdb.org/t/p/original{{ movie.backdrop_path }}" alt="">
+                    <mat-card-content>
+                        <p>{{ movie.overview }}</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-button>LIKE</button>
+                        <button mat-button>SHARE</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+            <div class="pt-3">
+                <mat-card class="mat-elevation-z8">
+                    <mat-card-content>
+                        <app-movies-list movieType="similar" movieTypeTitle="Similar" movieId="{{movie.id}}">
+                        </app-movies-list>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="pt-3">
+                <mat-card class="mat-elevation-z8">
+                    <mat-card-content>
+                        <app-movies-list movieType="recommendations" movieTypeTitle="Recommended"
+                            movieId="{{movie.id}}">
+                        </app-movies-list>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="pt-3">
+                <mat-card class="mat-elevation-z8">
+                    <mat-card-content>
+                        <app-reviews type="movie" id="{{movie.id}}"></app-reviews>
+                    </mat-card-content>
+                </mat-card>
+            </div>
         </div>
     </div>
 </div>

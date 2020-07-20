@@ -19,6 +19,7 @@ import { TvShowsComponent } from './tv-shows/tv-shows.component';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 import { ApiErrorComponent } from './shared/components/api-error/api-error.component';
 import { CastAndCrewComponent } from './shared/components/cast-and-crew/cast-and-crew.component';
+import { ReviewsComponent } from './shared/components/reviews/reviews.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CastAndCrewComponent } from './shared/components/cast-and-crew/cast-and
     MoviesComponent,
     TvShowsComponent,
     SpinnerComponent,
-    ApiErrorComponent
+    ApiErrorComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,

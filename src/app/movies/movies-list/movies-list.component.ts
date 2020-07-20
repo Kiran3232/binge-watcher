@@ -18,6 +18,9 @@ export class MoviesListComponent implements OnInit {
   @Input()
   movieTypeTitle: string;
 
+  @Input()
+  movieId: number;
+
   currentPage: number;
   isLoaded = false;
   isError = false;
@@ -33,20 +36,24 @@ export class MoviesListComponent implements OnInit {
     if (this.movieType === 'top_rated') {
       this.movies = this.storageService.topRatedMovies;
     }
-    else {
+    else if (this.movieType === "popular") {
       this.movies = this.storageService.popularMovies;
     }
+    console.log(this.movieType)
+    if (this.movieType === "similar" || this.movieType === 'recommendations') {
+      this.getSimilarMovies();
+    }
+    else {
+      this.getMovies();
+    }
+  }
+
+  getSimilarMovies() {
     if (this.movies.length === 0) {
-      this.apiService.getMovies(this.movieType).subscribe((data: Movies) => {
+      this.apiService.getSimilarMovies(this.movieId, this.movieType).subscribe((data: Movies) => {
         this.isLoaded = true;
         this.movies = data.results;
         this.currentPage = data.page;
-        if (this.movieType === 'top_rated') {
-          this.storageService.topRatedMovies = this.movies;
-        }
-        else {
-          this.storageService.popularMovies = this.movies;
-        }
       },
         (error) => {
           this.isLoaded = true;
@@ -58,8 +65,35 @@ export class MoviesListComponent implements OnInit {
       this.isLoaded = true;
     }
   }
+  getMovies() {
+    this.apiService.getMovies(this.movieType).subscribe((data: Movies) => {
+      this.isLoaded = true;
+      this.movies = data.results;
+      this.currentPage = data.page;
+      if (this.movieType === 'top_rated') {
+        this.storageService.topRatedMovies = this.movies;
+      }
+      else if (this.movieType == "popular") {
+        this.storageService.popularMovies = this.movies;
+      }
+    },
+      (error) => {
+        this.isLoaded = true;
+        this.isError = true;
+        console.log(error);
+      });
+  }
 
   getMoreMovies() {
+    if (this.movieType === 'similar' || this.movieType === 'recommendations') {
+      this.getMoreSimilarMovies();
+    }
+    else {
+      this.getMoreCategoryMovies();
+    }
+  }
+
+  getMoreCategoryMovies() {
     this.apiService.loadMoreMovies(this.currentPage + 1, this.movieType).subscribe((data: any) => {
       this.currentPage = data.page;
       data.results.forEach((movie) => {
@@ -68,9 +102,19 @@ export class MoviesListComponent implements OnInit {
       if (this.movieType === 'top_rated') {
         this.storageService.topRatedMovies = this.movies;
       }
-      else {
+      else if (this.movieType == "popular") {
         this.storageService.popularMovies = this.movies;
       }
+    });
+  }
+
+  getMoreSimilarMovies() {
+    console.log(this.currentPage)
+    this.apiService.loadMoreSimilarMovies(this.currentPage + 1, this.movieId, this.movieType).subscribe((data: any) => {
+      this.currentPage = data.page;
+      data.results.forEach((movie) => {
+        this.movies.push(movie);
+      });
     });
   }
 

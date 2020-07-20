@@ -14,4 +14,12 @@ export class ApiService {
   getCredits(type: string, id: number) {
     return this.http.get(environment.baseApiUrl + type + '/' + id + '/credits');
   }
+
+  getReviews(type: string, id: number) {
+    return this.http.get(environment.baseApiUrl + type + '/' + id + '/reviews');
+  }
+
+  getMoreReviews(type: string, id: number, page: number) {
+    return this.http.get(environment.baseApiUrl + type + '/' + id + '/reviews' + '?page=' + page);
+  }
 }
