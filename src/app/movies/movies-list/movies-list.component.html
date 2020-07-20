@@ -1,10 +1,7 @@
-<div class="top-rated-movies py-3 fade-in" *ngIf="!isError">
+<div class="top-rated-movies py-3 fade-in">
     <h2 class="col-12">{{movieTypeTitle}} Movies</h2>
-    <div class="loading text-center" *ngIf="!isLoaded && !isError">
-        <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
+    <app-spinner *ngIf="!isLoaded && !isError"></app-spinner>
+    <app-api-error *ngIf="isError"></app-api-error>
     <div *ngIf="isLoaded && !isError">
         <div class="position-relative">
             <div class="overlay"></div>
@@ -19,7 +16,4 @@
             <button mat-raised-button color="primary" (click)="getMoreMovies()">Load More</button>
         </div>
     </div>
-</div>
-<div class="error" *ngIf="isError">
-    <h2 class="text-center">Try Again Later!</h2>
 </div>

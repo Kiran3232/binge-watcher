@@ -1,12 +1,6 @@
 <div class="credits py-4 fade-in">
-    <div class="loading text-center" *ngIf="!isLoaded && !isError">
-        <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    <div class="error" *ngIf="isError">
-        <h2 class="text-center">Try Again Later!</h2>
-    </div>
+    <app-spinner *ngIf="!isLoaded && !isError"></app-spinner>
+    <app-api-error *ngIf="isError"></app-api-error>
     <div class="row text-center" *ngIf="isLoaded && !isError">
         <div class="col-12 px-0">
             <h2>Cast</h2>

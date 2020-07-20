@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { StorageService } from 'src/app/shared/storage.service';
+import { StorageService } from 'src/app/shared/services/storage.service';
 import { TvShowsApiService } from '../services/tv-shows-api.service';
 import { TvShow } from '../tvshow.model';
 import { TvShows } from '../tvshows.model';

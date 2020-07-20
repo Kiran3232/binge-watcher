@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { StorageService } from 'src/app/shared/storage.service';
+import { StorageService } from 'src/app/shared/services/storage.service';
 import { MoviesApiService } from '../services/movies-api.service';
 import { Movie } from '../movie.model';
 import { Movies } from '../movies.model';
@@ -61,7 +61,6 @@ export class MoviesListComponent implements OnInit {
 
   getMoreMovies() {
     this.apiService.loadMoreMovies(this.currentPage + 1, this.movieType).subscribe((data: any) => {
-      console.log(data);
       this.currentPage = data.page;
       data.results.forEach((movie) => {
         this.movies.push(movie);

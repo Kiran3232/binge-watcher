@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesApiService } from '../services/movies-api.service';
-import { ApiService } from 'src/app/shared/api.service';
+import { ApiService } from 'src/app/shared/services/api.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -27,10 +27,8 @@ export class MovieDetailComponent implements OnInit {
       this.moviesApiService.getMovie(value.id).subscribe((movie) => {
         this.isLoaded = true;
         this.movie = movie;
-        console.log(movie);
         this.apiService.getCredits('movie', value.id).subscribe((credits) => {
           this.credits = credits;
-          console.log(credits);
         });
       },
         (error) => {

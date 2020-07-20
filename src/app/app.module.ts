@@ -14,7 +14,11 @@ import { MoviesListComponent } from './movies/movies-list/movies-list.component'
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
 import { TvShowsListComponent } from './tv-shows/tv-shows-list/tv-shows-list.component';
 import { TvShowDetailComponent } from './tv-shows/tv-show-detail/tv-show-detail.component';
-import { CastAndCrewComponent } from './shared/cast-and-crew/cast-and-crew.component';
+import { MoviesComponent } from './movies/movies.component';
+import { TvShowsComponent } from './tv-shows/tv-shows.component';
+import { SpinnerComponent } from './shared/components/spinner/spinner.component';
+import { ApiErrorComponent } from './shared/components/api-error/api-error.component';
+import { CastAndCrewComponent } from './shared/components/cast-and-crew/cast-and-crew.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { CastAndCrewComponent } from './shared/cast-and-crew/cast-and-crew.compo
     SidenavComponent,
     MoviesListComponent,
     TvShowsListComponent,
-    TvShowDetailComponent
+    TvShowDetailComponent,
+    MoviesComponent,
+    TvShowsComponent,
+    SpinnerComponent,
+    ApiErrorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
+import { ApiService } from '../../services/api.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ApiService } from '../api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cast-and-crew',
@@ -16,8 +16,7 @@ export class CastAndCrewComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private apiService: ApiService,
-    private router: Router
+    private apiService: ApiService
   ) { }
 
   ngOnInit(): void {

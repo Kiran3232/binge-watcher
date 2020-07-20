@@ -1,9 +1,7 @@
 <mat-toolbar color="primary">
-    <div class="navbar-expand-lg">
-        <button class="navbar-toggler" mat-icon-button (click)="toggleSideNav()">
-            <mat-icon>menu</mat-icon>
-        </button>
-    </div>
+    <button class="d-lg-none" mat-icon-button (click)="toggleSideNav()">
+        <mat-icon>menu</mat-icon>
+    </button>
     <div class="pt-1 pl-2">
         <a routerLink="/home" class="text-white text-decoration-none">Binge Watcher</a>
     </div>
@@ -16,14 +14,14 @@
                 <a class="nav-link" routerLink="/home" routerLinkActive="active-nav">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/training" routerLinkActive="active-nav">Movies</a>
+                <a class="nav-link" routerLink="/movies" routerLinkActive="active-nav">Movies</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/training" routerLinkActive="active-nav">TV Shows</a>
+                <a class="nav-link" routerLink="/tv" routerLinkActive="active-nav">TV Shows</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" routerLink="/signup" routerLinkActive="active-nav">Account</a>
-            </li>
+            </li> -->
             <!-- <li class="nav-item">
                 <a class="nav-link">Logout</a>
             </li> -->
