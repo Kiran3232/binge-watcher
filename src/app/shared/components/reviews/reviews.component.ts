@@ -15,7 +15,7 @@ export class ReviewsComponent implements OnInit {
   id: number;
 
   currentPage: number;
-  reviews: any[];
+  reviews: any[] = [];
   noMorePage = false;
 
   constructor(
@@ -26,22 +26,22 @@ export class ReviewsComponent implements OnInit {
     this.apiService.getReviews(this.type, this.id).subscribe((data: any) => {
       this.currentPage = data.page;
       this.reviews = data.results;
-      if(this.currentPage === data.total_pages){
+      if (this.currentPage === data.total_pages) {
         this.noMorePage = true;
       }
-    })
+    });
   }
 
   loadMoreReviews() {
-    this.apiService.getMoreReviews(this.type, this.id, this.currentPage + 1).subscribe((data : any) =>{
+    this.apiService.getMoreReviews(this.type, this.id, this.currentPage + 1).subscribe((data: any) => {
       this.currentPage = data.page;
       data.results.forEach((review) => {
         this.reviews.push(review);
-      })
-      if(this.currentPage === data.total_pages){
+      });
+      if (this.currentPage === data.total_pages) {
         this.noMorePage = true;
       }
-    })
+    });
   }
 
 }

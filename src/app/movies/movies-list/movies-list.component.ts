@@ -36,11 +36,10 @@ export class MoviesListComponent implements OnInit {
     if (this.movieType === 'top_rated') {
       this.movies = this.storageService.topRatedMovies;
     }
-    else if (this.movieType === "popular") {
+    else if (this.movieType === 'popular') {
       this.movies = this.storageService.popularMovies;
     }
-    console.log(this.movieType)
-    if (this.movieType === "similar" || this.movieType === 'recommendations') {
+    if (this.movieType === 'similar' || this.movieType === 'recommendations') {
       this.getSimilarMovies();
     }
     else {
@@ -73,7 +72,7 @@ export class MoviesListComponent implements OnInit {
       if (this.movieType === 'top_rated') {
         this.storageService.topRatedMovies = this.movies;
       }
-      else if (this.movieType == "popular") {
+      else if (this.movieType === 'popular') {
         this.storageService.popularMovies = this.movies;
       }
     },
@@ -102,14 +101,13 @@ export class MoviesListComponent implements OnInit {
       if (this.movieType === 'top_rated') {
         this.storageService.topRatedMovies = this.movies;
       }
-      else if (this.movieType == "popular") {
+      else if (this.movieType === 'popular') {
         this.storageService.popularMovies = this.movies;
       }
     });
   }
 
   getMoreSimilarMovies() {
-    console.log(this.currentPage)
     this.apiService.loadMoreSimilarMovies(this.currentPage + 1, this.movieId, this.movieType).subscribe((data: any) => {
       this.currentPage = data.page;
       data.results.forEach((movie) => {
