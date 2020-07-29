@@ -1,0 +1,21 @@
+<mat-card class="mat-elevation-z8">
+    <mat-card-header class="mx-auto text-center">
+        <mat-card-title>Cast and Crew</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="position-relative">
+            <div class="overlay width-100"></div>
+            <div class="row flex-row flex-nowrap overflow-auto">
+                <div class="col-6 pt-2 align-top" *ngFor="let cast of credits.cast" [class.d-none]="!cast.profile_path">
+                    <img src="https://image.tmdb.org/t/p/original{{ cast.profile_path }}" alt="Image Not Available"
+                        class="img-fluid pb-2">
+                    <label class="d-block text-wrap">{{ cast.name }}</label>
+                    <label class="d-block text-wrap">{{ cast.character }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="text-center pt-3">
+            <button mat-raised-button color="primary" (click)="showCast()">View More</button>
+        </div>
+    </mat-card-content>
+</mat-card>

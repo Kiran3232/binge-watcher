@@ -47,7 +47,6 @@ export class TvShowsListComponent implements OnInit {
         else {
           this.storageService.popularTvShows = this.shows;
         }
-        console.log(this.shows);
       },
         (error) => {
           this.isLoaded = true;
@@ -62,7 +61,6 @@ export class TvShowsListComponent implements OnInit {
 
   getMoreShows() {
     this.apiService.loadMoreShows(this.currentPage + 1, this.tvType).subscribe((data: any) => {
-      console.log(data);
       this.currentPage = data.page;
       data.results.forEach((show) => {
         this.shows.push(show);

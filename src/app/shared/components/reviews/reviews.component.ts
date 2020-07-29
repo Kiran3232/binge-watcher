@@ -15,7 +15,7 @@ export class ReviewsComponent implements OnInit {
   id: number;
 
   currentPage: number;
-  reviews: any[];
+  reviews: any[] = [];
   noMorePage = false;
 
   isLoaded = false;

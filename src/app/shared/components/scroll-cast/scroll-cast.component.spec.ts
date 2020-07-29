@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TvShowDetailComponent } from './tv-show-detail.component';
+import { ScrollCastComponent } from './scroll-cast.component';
 
-describe('TvShowDetailComponent', () => {
-  let component: TvShowDetailComponent;
-  let fixture: ComponentFixture<TvShowDetailComponent>;
+describe('ScrollCastComponent', () => {
+  let component: ScrollCastComponent;
+  let fixture: ComponentFixture<ScrollCastComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TvShowDetailComponent ]
+      declarations: [ ScrollCastComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TvShowDetailComponent);
+    fixture = TestBed.createComponent(ScrollCastComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

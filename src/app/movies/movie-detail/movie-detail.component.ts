@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { MoviesApiService } from '../services/movies-api.service';
 import { ApiService } from 'src/app/shared/services/api.service';
 
@@ -18,7 +18,6 @@ export class MovieDetailComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private moviesApiService: MoviesApiService,
-    private router: Router,
     private apiService: ApiService
   ) { }
 
@@ -39,9 +38,5 @@ export class MovieDetailComponent implements OnInit {
           console.log(error);
         });
     });
-  }
-
-  showCast() {
-    this.router.navigate(['movie', this.movie.id, 'credits']);
   }
 }

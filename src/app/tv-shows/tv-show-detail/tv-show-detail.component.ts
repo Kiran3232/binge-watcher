@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { TvShowsApiService } from '../services/tv-shows-api.service';
 import { ApiService } from 'src/app/shared/services/api.service';
 
@@ -18,8 +18,7 @@ export class TvShowDetailComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private tvShowsApiService: TvShowsApiService,
-    private apiService: ApiService,
-    private router: Router
+    private apiService: ApiService
   ) { }
 
   ngOnInit(): void {
@@ -37,10 +36,6 @@ export class TvShowDetailComponent implements OnInit {
           console.log(error);
         });
     });
-  }
-
-  showCast() {
-    this.router.navigate(['tv', this.show.id, 'credits']);
   }
 
 }

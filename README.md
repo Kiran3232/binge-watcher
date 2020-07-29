@@ -1,4 +1,4 @@
-# BingeWatcher
+# BingeWatcher [![Build Status](https://travis-ci.com/Kiran3232/binge-watcher.svg?branch=master)](https://travis-ci.com/Kiran3232/binge-watcher)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
 
