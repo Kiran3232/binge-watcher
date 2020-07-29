@@ -8,77 +8,15 @@
                     class="img-fluid mat-elevation-z8">
             </div>
             <div class="pt-3">
-                <mat-card class="mat-elevation-z8">
-                    <mat-card-header class="mx-auto text-center">
-                        <mat-card-title>More Info About {{ movie.title }}</mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content class="text-center">
-                        <label *ngIf="movie.homepage" class="d-block">Check out the <a href="{{ movie.homepage }}"
-                                target="_blank">Homepage</a></label>
-                        <label class="d-block">Check it out at <a href="https://www.imdb.com/title/{{ movie.imdb_id }}"
-                                target="_blank">IMDB</a></label>
-                        <label class="d-block">Check it out at <a href="https://www.themoviedb.org/movie/{{ movie.id }}"
-                                target="_blank">TMDB</a></label>
-                        <label class="d-block">Production Companies :</label>
-                        <div class="row py-3" *ngFor="let company of movie.production_companies; let isLast = last"
-                            [class.border-bottom]="!isLast">
-                            <div class="col-5">
-                                <img src="https://image.tmdb.org/t/p/original{{ company.logo_path }}"
-                                    alt="Image Not Available" class="img-fluid">
-                            </div>
-                            <div class="col-7 my-auto px-0">
-                                <label>{{ company.name }}</label>
-                            </div>
-                        </div>
-                    </mat-card-content>
-                </mat-card>
+                <app-info-card [movie]="movie"></app-info-card>
             </div>
             <div class="pt-3">
-                <mat-card class="mat-elevation-z8">
-                    <mat-card-header class="mx-auto text-center">
-                        <mat-card-title>Cast and Crew</mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <div class="position-relative">
-                            <div class="overlay width-100"></div>
-                            <div class="row flex-row flex-nowrap overflow-auto">
-                                <div class="col-6 pt-2 align-top" *ngFor="let cast of credits.cast"
-                                    [class.d-none]="!cast.profile_path">
-                                    <img src="https://image.tmdb.org/t/p/original{{ cast.profile_path }}"
-                                        alt="Image Not Available" class="img-fluid pb-2">
-                                    <label class="d-block text-wrap">{{ cast.name }}</label>
-                                    <label class="d-block text-wrap">{{ cast.character }}</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center pt-3">
-                            <button mat-raised-button color="primary" (click)="showCast()">View More</button>
-                        </div>
-                    </mat-card-content>
-                </mat-card>
+                <app-scroll-cast [credits]="credits" type="movie" *ngIf="credits"></app-scroll-cast>
             </div>
         </div>
         <div class="col-md-8 col-lg-9 pt-3 pt-md-0">
             <div>
-                <mat-card class="example-card mat-elevation-z8">
-                    <mat-card-header class="mx-auto text-center">
-                        <mat-card-title>{{ movie.title }}</mat-card-title>
-                        <mat-card-subtitle>Original Title: {{ movie.original_title }} |
-                            {{ movie.original_language | uppercase }}</mat-card-subtitle>
-                        <mat-card-subtitle>Genre: <span *ngFor="let genre of movie.genres; let isLast = last">
-                                {{ genre.name }}{{isLast ? '' : ', '}} </span> </mat-card-subtitle>
-                        <mat-card-subtitle>Release Date: {{ movie.release_date }} </mat-card-subtitle>
-                        <mat-card-subtitle>Rating: {{ movie.vote_average }} </mat-card-subtitle>
-                    </mat-card-header>
-                    <img mat-card-image src="https://image.tmdb.org/t/p/original{{ movie.backdrop_path }}" alt="">
-                    <mat-card-content>
-                        <p>{{ movie.overview }}</p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <button mat-button>LIKE</button>
-                        <button mat-button>SHARE</button>
-                    </mat-card-actions>
-                </mat-card>
+                <app-detail-card [movie]="movie"></app-detail-card>
             </div>
             <div class="pt-3">
                 <mat-card class="mat-elevation-z8">

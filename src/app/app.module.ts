@@ -20,6 +20,9 @@ import { SpinnerComponent } from './shared/components/spinner/spinner.component'
 import { ApiErrorComponent } from './shared/components/api-error/api-error.component';
 import { CastAndCrewComponent } from './shared/components/cast-and-crew/cast-and-crew.component';
 import { ReviewsComponent } from './shared/components/reviews/reviews.component';
+import { InfoCardComponent } from './shared/components/info-card/info-card.component';
+import { DetailCardComponent } from './shared/components/detail-card/detail-card.component';
+import { ScrollCastComponent } from './shared/components/scroll-cast/scroll-cast.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { ReviewsComponent } from './shared/components/reviews/reviews.component'
     TvShowsComponent,
     SpinnerComponent,
     ApiErrorComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    InfoCardComponent,
+    DetailCardComponent,
+    ScrollCastComponent
   ],
   imports: [
     BrowserModule,
