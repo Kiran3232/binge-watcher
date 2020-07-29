@@ -18,30 +18,44 @@ export class ReviewsComponent implements OnInit {
   reviews: any[];
   noMorePage = false;
 
+  isLoaded = false;
+  isError = false;
+
   constructor(
     private apiService: ApiService
   ) { }
 
   ngOnInit(): void {
+    this.initializeReviews();
+  }
+
+  initializeReviews() {
+    this.isLoaded = false;
+    this.isError = false;
     this.apiService.getReviews(this.type, this.id).subscribe((data: any) => {
       this.currentPage = data.page;
       this.reviews = data.results;
-      if(this.currentPage === data.total_pages){
+      if (this.currentPage === data.total_pages) {
         this.noMorePage = true;
       }
-    })
+      this.isLoaded = true;
+    },
+      (error) => {
+        console.log(error);
+        this.isError = true;
+      });
   }
 
   loadMoreReviews() {
-    this.apiService.getMoreReviews(this.type, this.id, this.currentPage + 1).subscribe((data : any) =>{
+    this.apiService.getMoreReviews(this.type, this.id, this.currentPage + 1).subscribe((data: any) => {
       this.currentPage = data.page;
       data.results.forEach((review) => {
         this.reviews.push(review);
-      })
-      if(this.currentPage === data.total_pages){
+      });
+      if (this.currentPage === data.total_pages) {
         this.noMorePage = true;
       }
-    })
+    });
   }
 
 }

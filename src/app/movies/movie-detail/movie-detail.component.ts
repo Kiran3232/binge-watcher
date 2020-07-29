@@ -24,6 +24,8 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((value) => {
+      this.isError = false;
+      this.isLoaded = false;
       this.moviesApiService.getMovie(value.id).subscribe((movie) => {
         this.isLoaded = true;
         this.movie = movie;
