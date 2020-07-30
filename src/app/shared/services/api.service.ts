@@ -22,4 +22,22 @@ export class ApiService {
   getMoreReviews(type: string, id: number, page: number) {
     return this.http.get(environment.baseApiUrl + type + '/' + id + '/reviews' + '?page=' + page);
   }
+
+  getList(type: string, category: string, id?: number) {
+    if (id === undefined) {
+      return this.http.get(environment.baseApiUrl + type + '/' + category);
+    }
+    else {
+      return this.http.get(environment.baseApiUrl + type + '/' + id + '/' + category);
+    }
+  }
+
+  loadMoreList(page: number, type: string, category: string, id?: number) {
+    if (id === undefined) {
+      return this.http.get(environment.baseApiUrl + type + '/' + category + '?page=' + page);
+    }
+    else {
+      return this.http.get(environment.baseApiUrl + type + '/' + id + '/' + category + '?page=' + page);
+    }
+  }
 }

@@ -21,17 +21,17 @@
             <div class="pt-3">
                 <mat-card class="mat-elevation-z8">
                     <mat-card-content>
-                        <app-movies-list movieType="similar" movieTypeTitle="Similar" movieId="{{movie.id}}">
-                        </app-movies-list>
+                        <app-scroll-list type="movie" category="similar" title="Similar Movies" id="{{ movie.id }}">
+                        </app-scroll-list>
                     </mat-card-content>
                 </mat-card>
             </div>
             <div class="pt-3">
                 <mat-card class="mat-elevation-z8">
                     <mat-card-content>
-                        <app-movies-list movieType="recommendations" movieTypeTitle="Recommended"
-                            movieId="{{movie.id}}">
-                        </app-movies-list>
+                        <app-scroll-list type="movie" category="recommendations" title="Recommended Movies"
+                            id="{{ movie.id }}">
+                        </app-scroll-list>
                     </mat-card-content>
                 </mat-card>
             </div>

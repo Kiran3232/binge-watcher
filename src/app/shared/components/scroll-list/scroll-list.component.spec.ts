@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TvShowsListComponent } from './tv-shows-list.component';
+import { ScrollListComponent } from './scroll-list.component';
 
-describe('TvShowsListComponent', () => {
-  let component: TvShowsListComponent;
-  let fixture: ComponentFixture<TvShowsListComponent>;
+describe('ScrollListComponent', () => {
+  let component: ScrollListComponent;
+  let fixture: ComponentFixture<ScrollListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TvShowsListComponent ]
+      declarations: [ ScrollListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TvShowsListComponent);
+    fixture = TestBed.createComponent(ScrollListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

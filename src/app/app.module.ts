@@ -10,9 +10,7 @@ import { MaterialModule } from './material.module';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavComponent } from './navigation/sidenav/sidenav.component';
-import { MoviesListComponent } from './movies/movies-list/movies-list.component';
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
-import { TvShowsListComponent } from './tv-shows/tv-shows-list/tv-shows-list.component';
 import { TvShowDetailComponent } from './tv-shows/tv-show-detail/tv-show-detail.component';
 import { MoviesComponent } from './movies/movies.component';
 import { TvShowsComponent } from './tv-shows/tv-shows.component';
@@ -23,6 +21,7 @@ import { ReviewsComponent } from './shared/components/reviews/reviews.component'
 import { InfoCardComponent } from './shared/components/info-card/info-card.component';
 import { DetailCardComponent } from './shared/components/detail-card/detail-card.component';
 import { ScrollCastComponent } from './shared/components/scroll-cast/scroll-cast.component';
+import { ScrollListComponent } from './shared/components/scroll-list/scroll-list.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +31,6 @@ import { ScrollCastComponent } from './shared/components/scroll-cast/scroll-cast
     CastAndCrewComponent,
     HeaderComponent,
     SidenavComponent,
-    MoviesListComponent,
-    TvShowsListComponent,
     TvShowDetailComponent,
     MoviesComponent,
     TvShowsComponent,
@@ -42,7 +39,8 @@ import { ScrollCastComponent } from './shared/components/scroll-cast/scroll-cast
     ReviewsComponent,
     InfoCardComponent,
     DetailCardComponent,
-    ScrollCastComponent
+    ScrollCastComponent,
+    ScrollListComponent
   ],
   imports: [
     BrowserModule,

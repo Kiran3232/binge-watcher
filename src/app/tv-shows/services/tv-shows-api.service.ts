@@ -16,12 +16,4 @@ export class TvShowsApiService {
   getTvShow(id: number) {
     return this.http.get(environment.baseApiUrl + this.typeSuffix + id);
   }
-
-  getTvShows(type: string) {
-    return this.http.get(environment.baseApiUrl + this.typeSuffix + type);
-  }
-
-  loadMoreShows(page: number, type: string) {
-    return this.http.get(environment.baseApiUrl + this.typeSuffix + type + '?page=' + page);
-  }
 }

@@ -15,7 +15,25 @@
             </div>
         </div>
         <div class="col-md-8 col-lg-9 pt-3 pt-md-0">
-            <app-detail-card [show]="show"></app-detail-card>
+            <div>
+                <app-detail-card [show]="show"></app-detail-card>
+            </div>
+            <div class="pt-3">
+                <mat-card class="mat-elevation-z8">
+                    <mat-card-content>
+                        <app-scroll-list type="tv" category="similar" title="Similar TV Shows" id="{{ show.id }}">
+                        </app-scroll-list>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="pt-3">
+                <mat-card class="mat-elevation-z8">
+                    <mat-card-content>
+                        <app-scroll-list type="tv" category="recommendations" title="Recommended TV Shows" id="{{ show.id }}">
+                        </app-scroll-list>
+                    </mat-card-content>
+                </mat-card>
+            </div>
         </div>
     </div>
 </div>

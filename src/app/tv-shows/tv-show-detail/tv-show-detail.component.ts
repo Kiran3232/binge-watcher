@@ -23,6 +23,8 @@ export class TvShowDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((value) => {
+      this.isError = false;
+      this.isLoaded = false;
       this.tvShowsApiService.getTvShow(value.id).subscribe((movie) => {
         this.isLoaded = true;
         this.show = movie;

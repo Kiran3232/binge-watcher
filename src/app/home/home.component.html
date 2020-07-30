@@ -1,4 +1,10 @@
-<app-movies-list movieType="popular" movieTypeTitle="Popular"></app-movies-list>
-<!-- <app-movies-list movieType="top_rated" movieTypeTitle="Top Rated"></app-movies-list> -->
-<app-tv-shows-list tvType="popular" tvTypeTitle="Popular"></app-tv-shows-list>
-<!-- <app-tv-shows-list tvType="top_rated" tvTypeTitle="Top Rated"></app-tv-shows-list> -->
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Popular">
+        <app-scroll-list type="movie" category="popular" title="Popular Movies"></app-scroll-list>
+        <app-scroll-list type="tv" category="popular" title="Popular TV Shows"></app-scroll-list>
+    </mat-tab>
+    <mat-tab label="Top Rated">
+        <app-scroll-list type="movie" category="top_rated" title="Top Rated Movies"></app-scroll-list>
+        <app-scroll-list type="tv" category="top_rated" title="Top Rated TV Shows"></app-scroll-list>
+    </mat-tab>
+</mat-tab-group>
